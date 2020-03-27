@@ -1,7 +1,7 @@
 console.log("App.js is running");
 
 const app = {
-    title: "Hello App!",
+    title: "Indecision App",
     subtitle: "This will solve all your problems",
 }
 
@@ -17,19 +17,26 @@ var template = (
     </div>
 )
 
-const user = {
-    name: "Mat",
-    age: 32,
-    location: "London"
+let count = 0
+const addOne = () => {
+    console.log('add one')
+}
+const minusOne = () => {
+    console.log('minus one')
+}
+const reset = () => {
+    console.log('reset')
 }
 
 const templateTwo = (
     <div>
-        <h1>{user.name}</h1>
-        <p>Age: {user.age}</p>
-        <p>Location: {user.location}</p>
+        <h1>Count: {count}</h1>
+        <button onClick={addOne}>+1</button>
+        <button onClick={minusOne}>-1</button>
+        <button onClick={reset}>Reset</button>
     </div>
 )
+
 var appRoot = document.getElementById('app')
 
-ReactDOM.render(template, appRoot)
+ReactDOM.render(templateTwo, appRoot)
