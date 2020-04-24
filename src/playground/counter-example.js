@@ -8,6 +8,20 @@ class Counter extends React.Component {
             count: props.count
         }
     }
+    componentDidMount() {
+        this.loadCount();
+    }
+    componentDidUpdate() {
+        localStorage.setItem("count", this.state.count);
+    }
+    loadCount() {
+        const countStr = localStorage.getItem("count");
+        const count = parseInt(countStr)
+        console.log(count)
+        if(!isNaN(count)) {
+            this.setState(() => ({ count }));
+        }
+    }
     handleAddOne() {
         this.setState((prevState) => {
             return {
